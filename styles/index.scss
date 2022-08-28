@@ -1,0 +1,115 @@
+@use '@carbon/react';
+@use '@carbon/layout';
+
+@import '@carbon/colors';
+
+$base-bg-color: #0C646A;
+
+p {
+    margin: layout.$spacing-05 0;
+}
+
+.main-container {
+    position: relative;
+    background-color: $base-bg-color;
+    min-height: 1200px;
+}
+
+.spacing-06 {
+    height: layout.$spacing-06;
+}
+
+.spacing-header {
+    display: flex;
+    flex-direction: row;
+    height: 79px;
+    justify-content: flex-end;
+    background: white;
+    button {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 1rem;
+
+        // color: $yellow-30;
+        // border-color: $yellow-30;
+    }
+}
+
+.spacing-12 {
+    height: layout.$spacing-12;
+}
+
+.header-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.form-wrapper {
+    margin: 0 auto;
+    margin-bottom: layout.$spacing-12;
+    background-color: $white-0;
+    width: 920px;
+}
+
+.form {
+    .cds--text-input-wrapper {
+        margin: layout.$spacing-03;
+    }
+
+    .form-header {
+        background-color: $base-bg-color;
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+        padding-bottom: layout.$spacing-05;
+    }
+    .form-header-1 {
+        line-height: 40px;
+        font-size: 32px;
+        color: $white-0;
+    }
+    .form-header-2 {
+        line-height: 24px;
+        font-size: 16px;
+        color: $yellow-30;
+    }
+    .form-inline-header {
+        font-size: 20px;
+        margin: layout.$spacing-05 0;
+    }
+
+    .form-progress-indicator {
+        padding: layout.$spacing-05 0;
+    }
+    .form-tiles-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 layout.$spacing-07;
+    }
+    .form-tile {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        width: 274px;
+        .account-manager-icon {
+            width: 45px;
+        }
+        .legal-entity-icon {
+            width: 35px;
+        }
+        .technical-manager-icon {
+            width: 45px;
+        }
+    }
+}
+
+.form-action-button {
+    margin-top: layout.$spacing-07;
+    width: 50%;
+    max-width: none;
+}
