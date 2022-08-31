@@ -1,36 +1,19 @@
 import React, { Component } from 'react';
 
 import { Grid, Column } from '@carbon/react';
-import { Button } from '@carbon/react';
 import { Form } from '@carbon/react';
 import { TextInput, Select, SelectItem } from '@carbon/react';
 import SelectCountry from './select-country';
 
-
 import SchletterFormProgressIndicator from './schletter-form-progress-indicator';
 
-export default class SchletterFormStep2 extends Component {
+import SchletterFormStepAbstract from './schletter-form-step-abstract';
+
+export default class SchletterFormStep2 extends SchletterFormStepAbstract {
     constructor(props) {
         super(props);
     }
 
-    handleInput(e) {
-        let value = e.target.value;
-        let name = e.target.name;
-
-        this.props.setFormData({
-            ...this.props.formData,
-            [name]: value,
-        });
-    }
-  
-    handleSubmit(e) {
-        e.preventDefault();
-        let formData = this.props.formData;
-        console.log('handle submit');
-        alert('input values: ' + JSON.stringify(formData));
-    }
-  
     render() {
         return (
             <Form className="form step-2">
@@ -92,7 +75,6 @@ export default class SchletterFormStep2 extends Component {
                     <Column lg={8} md={8} sm={4}>
                         <Select
                             id="formData_projectType"
-                            defaultValue="placeholder-item"
                             labelText="Project type"
                             value={this.props.formData.projectType}
                             onChange={(e) => this.handleInput(e)}

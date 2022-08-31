@@ -40,6 +40,7 @@ export default class SchletterFormProgressIndicator extends Component {
                     />
                     <ProgressStep
                         current={this.props.step == 4}
+                        complete={this.props.step > 4}
                         label="Terrain category"
                         description="Step 5: Terrain category"
                     />

@@ -1,28 +1,20 @@
 import React, { Component } from 'react';
 
-import { Grid, Column } from '@carbon/react';
-
-import { Tile } from '@carbon/react';
-
-import { Form, FormGroup } from '@carbon/react';
-import { TextInput, RadioButton } from '@carbon/react';
+import {
+    Column,
+    Form,
+    Grid,
+    RadioButton,
+    Tile
+} from '@carbon/react';
 
 import SchletterFormProgressIndicator from './schletter-form-progress-indicator';
 
-export default class SchletterFormStep2 extends Component {
+import SchletterFormStepAbstract from './schletter-form-step-abstract';
+
+export default class SchletterFormStep2 extends SchletterFormStepAbstract {
     constructor(props) {
         super(props);
-    }
-
-    handleInput(e) {
-        console.log(e);
-        let value = e.target.value;
-        let name = e.target.name;
-
-        this.props.setFormData({
-            ...this.props.formData,
-            [name]: value,
-        });
     }
 
     handleRoleChange(role) {
@@ -32,14 +24,6 @@ export default class SchletterFormStep2 extends Component {
         });
 
     }
-  
-    handleSubmit(e) {
-        e.preventDefault();
-        let formData = this.props.formData;
-        console.log('handle submit');
-        alert('input values: ' + JSON.stringify(formData));
-    }
-
   
     render() {
         return (

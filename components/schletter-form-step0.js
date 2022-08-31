@@ -11,28 +11,13 @@ import SelectCountry from './select-country';
 
 import SchletterFormProgressIndicator from './schletter-form-progress-indicator';
 
-class SchletterFormStep1 extends Component {
+import SchletterFormStepAbstract from './schletter-form-step-abstract';
+
+export default class SchletterFormStep1 extends SchletterFormStepAbstract {
     constructor(props) {
         super(props);
     }
 
-    handleInput(e) {
-        let value = e.target.value;
-        let name = e.target.name;
-
-        this.props.setFormData({
-            ...this.props.formData,
-            [name]: value,
-        });
-      }
-  
-    handleSubmit(e) {
-        e.preventDefault();
-        let formData = this.props.formData;
-        console.log('handle submit');
-        alert('input values: ' + JSON.stringify(formData));
-    }
-  
     render() {
         return (
             <Form className="form step-0">
@@ -171,5 +156,3 @@ class SchletterFormStep1 extends Component {
         )
     }
 }
-
-export default SchletterFormStep1; 

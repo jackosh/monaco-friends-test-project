@@ -7,26 +7,11 @@ import { TextInput, Select, SelectItem } from '@carbon/react';
 
 import SchletterFormProgressIndicator from './schletter-form-progress-indicator';
 
-export default class SchletterFormStep2 extends Component {
+import SchletterFormStepAbstract from './schletter-form-step-abstract';
+
+export default class SchletterFormStep2 extends SchletterFormStepAbstract {
     constructor(props) {
         super(props);
-    }
-
-    handleInput(e) {
-        let value = e.target.value;
-        let name = e.target.name;
-
-        this.props.setFormData({
-            ...this.props.formData,
-            [name]: value,
-        });
-    }
-  
-    handleSubmit(e) {
-        e.preventDefault();
-        let formData = this.props.formData;
-        console.log('handle submit');
-        alert('input values: ' + JSON.stringify(formData));
     }
   
     render() {
@@ -56,7 +41,7 @@ export default class SchletterFormStep2 extends Component {
                         <TextInput
                             id="formData_moduleModel"
                             name="moduleModel"
-                            value={this.props.formData.legalName}
+                            value={this.props.formData.moduleModel}
                             onChange={(e) => this.handleInput(e)}
                             invalidText="A valid value is required"
                             labelText="Module model"
@@ -67,7 +52,7 @@ export default class SchletterFormStep2 extends Component {
                         <TextInput
                             id="formData_modulePower"
                             name="modulePower"
-                            value={this.props.formData.contactName}
+                            value={this.props.formData.modulePower}
                             onChange={(e) => this.handleInput(e)}
                             invalidText="A valid value is required"
                             labelText="Module Power"
@@ -80,7 +65,7 @@ export default class SchletterFormStep2 extends Component {
                         <TextInput
                             id="formData_moduleHeight"
                             name="moduleHeight"
-                            value={this.props.formData.legalName}
+                            value={this.props.formData.moduleHeight}
                             onChange={(e) => this.handleInput(e)}
                             invalidText="A valid value is required"
                             labelText="Module Height (mm)"
@@ -91,7 +76,7 @@ export default class SchletterFormStep2 extends Component {
                         <TextInput
                             id="formData_moduleWidth"
                             name="moduleWidth"
-                            value={this.props.formData.contactName}
+                            value={this.props.formData.moduleWidth}
                             onChange={(e) => this.handleInput(e)}
                             invalidText="A valid value is required"
                             labelText="Module Width (mm)"
@@ -104,7 +89,7 @@ export default class SchletterFormStep2 extends Component {
                         <TextInput
                             id="formData_moduleFrameThickness"
                             name="moduleFrameThickness"
-                            value={this.props.formData.legalName}
+                            value={this.props.formData.moduleFrameThickness}
                             onChange={(e) => this.handleInput(e)}
                             invalidText="A valid value is required"
                             labelText="Module Frame Thickness (mm)"
@@ -115,7 +100,7 @@ export default class SchletterFormStep2 extends Component {
                         <TextInput
                             id="formData_moduleWeight"
                             name="moduleWeight"
-                            value={this.props.formData.contactName}
+                            value={this.props.formData.moduleWeight}
                             onChange={(e) => this.handleInput(e)}
                             invalidText="A valid value is required"
                             labelText="Module Weight"
@@ -128,7 +113,7 @@ export default class SchletterFormStep2 extends Component {
                         <TextInput
                             id="formData_groundClearanceToLowerEdge"
                             name="groundClearanceToLowerEdge"
-                            value={this.props.formData.legalName}
+                            value={this.props.formData.groundClearanceToLowerEdge}
                             onChange={(e) => this.handleInput(e)}
                             invalidText="A valid value is required"
                             labelText="Ground Clearance to Lower Edge (mm)"
@@ -139,7 +124,7 @@ export default class SchletterFormStep2 extends Component {
                         <TextInput
                             id="formData_tilt"
                             name="tilt"
-                            value={this.props.formData.contactName}
+                            value={this.props.formData.tilt}
                             onChange={(e) => this.handleInput(e)}
                             invalidText="A valid value is required"
                             labelText="Tilt"
@@ -151,7 +136,6 @@ export default class SchletterFormStep2 extends Component {
                     <Column lg={8} md={8} sm={4}>
                         <Select
                             id="formData_moduleOrientation"
-                            defaultValue="placeholder-item"
                             labelText="Module Orientation"
                             value={this.props.formData.moduleOrientation}
                             onChange={(e) => this.handleInput(e)}
@@ -171,7 +155,6 @@ export default class SchletterFormStep2 extends Component {
                     <Column lg={8} md={8} sm={4}>
                         <Select
                             id="formData_stringSize"
-                            defaultValue="placeholder-item"
                             labelText="String Size"
                             value={this.props.formData.stringSize}
                             onChange={(e) => this.handleInput(e)}
