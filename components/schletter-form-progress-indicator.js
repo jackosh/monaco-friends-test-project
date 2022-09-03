@@ -11,7 +11,7 @@ export default class SchletterFormProgressIndicator extends Component {
     render() {
         return (
             <div>
-                Step: {this.props.step}
+                {/* Step: {this.props.step} */}
                 <ProgressIndicator className="form-progress-indicator" spaceEqually>
                     <ProgressStep
                         current={this.props.step == 0}
