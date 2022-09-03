@@ -1,7 +1,44 @@
+@use '@carbon/react/scss/themes';
+@use '@carbon/react/scss/theme';
+@use '@carbon/react/scss/components/button/tokens' as button-tokens;
+@use '@carbon/themes/scss/utilities';
 @use '@carbon/react';
 @use '@carbon/layout';
+@use '@carbon/react/scss/components/button';
+
+$button-token-overrides: (
+  icon-primary: #0C646A,
+  interactive: #0C646A,
+  interactive-01: #f8b204,
+  support-03: #feaf02,
+  // Button Primary
+  button-primary: #f9b104,
+  button-primary-active: #f9b104,
+  button-primary-hover: #f9b104,
+  // Button Secondary
+  button-secondary: #00607b,
+  button-secondary-active: #00607b,
+  button-secondary-hover: #00607b,
+  // Button Tertiary
+  button-tertiary: #f9b104,
+  button-tertiary-active: #f9b104,
+  button-tertiary-hover: #f9b104,
+  grid-margin: 16px,
+  grid-gutter: 0
+);
+$button-tokens: utilities.merge(
+  button-tokens.$button-tokens,
+  $button-token-overrides
+);
+
+@include theme.add-component-tokens($button-tokens);
 
 @import '@carbon/colors';
+
+:root {
+  @include theme.theme();
+}
+
 
 $base-bg-color: #0C646A;
 
@@ -13,6 +50,10 @@ p {
     position: relative;
     background-color: $base-bg-color;
     min-height: 1200px;
+    // background: url("/images/seitenansicht-freigestellt-1.svg") $base-bg-color;
+    background-blend-mode: multiply;
+    background-position: 0 400px;
+    background-repeat: no-repeat;
 }
 
 .spacing-06 {
@@ -23,16 +64,11 @@ p {
     display: flex;
     flex-direction: row;
     height: 79px;
+    align-items: center;
     justify-content: flex-end;
     background: white;
     button {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 1rem;
-
-        // color: $yellow-30;
-        // border-color: $yellow-30;
+        margin-right: layout.$spacing-06;
     }
 }
 
@@ -106,10 +142,58 @@ p {
             width: 45px;
         }
     }
+
+    .terrain-category {
+        @include theme.theme(themes.$g10);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 428px;
+        height: 140px;
+        color: white;
+        font-weight: bold !important;
+        margin-bottom: 1.2rem;
+        p {
+            font-size: 12px;
+            text-align: center;
+            margin-top: layout.$spacing-02;
+            margin-bottom: 0;
+        }
+        .cds--radio-button__appearance {
+            border: 1px solid white;
+            border-color: white !important;
+            background-color: white;
+        }
+    }
+    .terrain-category-1 {
+        background-image: url("/images/large-green-landscape-covered-grass-surrounded-by-trees-1.png");
+    }
+    .terrain-category-2 {
+        background-image: url("/images/large-green-landscape-covered-grass-surrounded-by-trees-1-3.png");
+    }
+    .terrain-category-2-3 {
+        background-image: url("/images/large-green-landscape-covered-grass-surrounded-by-trees-1-1.png");
+    }
+    .terrain-category-3 {
+        background-image: url("/images/large-green-landscape-covered-grass-surrounded-by-trees-1-4.png");
+    }
+    .terrain-category-4 {
+        background-image: url("/images/large-green-landscape-covered-grass-surrounded-by-trees-1-2.png");
+    }
 }
 
 .form-action-button {
     margin-top: layout.$spacing-07;
     width: 50%;
     max-width: none;
+    &.start {
+        width: 100%;
+    }
+}
+.form-action-button-submit {
+    margin-top: layout.$spacing-07;
+    width: 100%;
+    max-width: none;
+    justify-content: center;
 }

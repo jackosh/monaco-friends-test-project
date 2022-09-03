@@ -5,7 +5,6 @@ export default function SelectCountry(props) {
         <>
             <Select
                 id={`formData_${props.name}`}
-                defaultValue="placeholder-item"
                 labelText={props.labelText}
                 value={props.formData[props.name]}
                 onChange={(e) => props.handleInput(e)}
